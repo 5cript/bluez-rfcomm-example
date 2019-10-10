@@ -24,7 +24,7 @@ namespace Bluetooth
         // A name for the profile to register.
         std::string name;
 
-        // set auto connect property?
+        // set auto connect property? This is probably for clients and not servers, but whatever
         bool autoConnect;
 
         // names the dbus instance, if provided, so it can be easily found in d-feet.
