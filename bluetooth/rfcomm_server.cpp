@@ -159,6 +159,17 @@ namespace Bluetooth
     void Server::stop()
     {
         impl_->reactor.stop();
+
+        using namespace DBusMock;
+        auto profileMan = create_interface <BlueZ::org::bluez::ProfileManager>
+        (
+            *impl_->bus,
+            "org.bluez",
+            "/org/bluez",
+            "org.bluez.ProfileManager1"
+        );
+
+        profileMan.UnregisterProfile(object_path{impl_->info.path});
     }
 //#####################################################################################################################
 }
