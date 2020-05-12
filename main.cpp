@@ -19,13 +19,13 @@ int main()
         "/ela/bluetooth",
         "SerialServer",
         true,
-        "de.iwsmesstechnik.ela"s
+        "de.blabla.cpp"s
     };
 
     Server server{&bus, info};
     Bluetooth::Adapter driver(&bus);
 
-    driver.alias("ELA-3.0T");
+    driver.alias("device-3.0T");
     std::cout << "power status: " << driver.power() << "\n";
     std::cout << "discover timeout: " << driver.discoverTimeout() << "\n";
 
