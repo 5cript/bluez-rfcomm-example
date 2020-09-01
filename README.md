@@ -35,7 +35,7 @@ I tend to have workspaces with all projects and dependencies in parallel with a 
 - git clone https://github.com/5cript/dbus-glue.git
 - git clone https://github.com/5cript/dbus-glue-system.git
 - git clone https://github.com/5cript/bluez-rfcomm-example.git
-- cd dbus-mockery
+- cd dbus-glue
 - mkdir build
 - cd build
 - cmake ..
