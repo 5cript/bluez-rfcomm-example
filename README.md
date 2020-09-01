@@ -32,8 +32,8 @@ I tend to have workspaces with all projects and dependencies in parallel with a 
 
 - mkdir bluetooth_project
 - cd bluetooth_project
-- git clone https://github.com/5cript/dbus-mockery.git
-- git clone https://github.com/5cript/dbus-mockery-system.git
+- git clone https://github.com/5cript/dbus-glue.git
+- git clone https://github.com/5cript/dbus-glue-system.git
 - git clone https://github.com/5cript/bluez-rfcomm-example.git
 - cd dbus-mockery
 - mkdir build
