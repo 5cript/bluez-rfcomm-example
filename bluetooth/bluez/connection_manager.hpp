@@ -2,8 +2,8 @@
 
 #include "reactor.hpp"
 
-#include <dbus-mockery/bindings/exposable_interface.hpp>
-#include <dbus-mockery/bindings/types.hpp>
+#include <dbus-glue/bindings/exposable_interface.hpp>
+#include <dbus-glue/bindings/types.hpp>
 #include <unordered_map>
 #include <functional>
 

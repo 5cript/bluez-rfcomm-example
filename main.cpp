@@ -2,7 +2,7 @@
 #include "bluetooth/bluez/adapter.hpp"
 #include "bluetooth/bluez/device.hpp"
 
-#include <dbus-mockery/bindings/busy_loop.hpp>
+#include <dbus-glue/bindings/busy_loop.hpp>
 
 #include <iostream>
 

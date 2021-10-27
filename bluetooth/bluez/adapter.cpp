@@ -1,10 +1,10 @@
 #include "adapter.hpp"
 
-#include <dbus-mockery/dbus_interface.hpp>
+#include <dbus-glue/dbus_interface.hpp>
 
-#include <dbus-mockery-system/bluez/hci.hpp>
-#include <dbus-mockery-system/bluez/bluez.hpp>
-#include <dbus-mockery-system/dbus/interfaces.hpp>
+#include <dbus-glue-system/bluez/hci.hpp>
+#include <dbus-glue-system/bluez/bluez.hpp>
+#include <dbus-glue-system/dbus/interfaces.hpp>
 
 #include <type_traits>
 

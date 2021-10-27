@@ -1,8 +1,8 @@
 #pragma once
 
-#include <dbus-mockery/bindings/bus.hpp>
-#include <dbus-mockery/bindings/object_path.hpp>
-#include <dbus-mockery-system/bluez/device.hpp>
+#include <dbus-glue/bindings/bus.hpp>
+#include <dbus-glue/bindings/object_path.hpp>
+#include <dbus-glue-system/bluez/device.hpp>
 
 #include <memory>
 

@@ -3,10 +3,10 @@
 #include "bluez/connection_manager.hpp"
 #include "bluez/reactor.hpp"
 
-#include <dbus-mockery/dbus_interface.hpp>
-#include <dbus-mockery/bindings/variant_helpers.hpp>
-#include <dbus-mockery-system/bluez/bluez.hpp>
-#include <dbus-mockery/interface_builder.hpp>
+#include <dbus-glue/dbus_interface.hpp>
+#include <dbus-glue/bindings/variant_helpers.hpp>
+#include <dbus-glue-system/bluez/bluez.hpp>
+#include <dbus-glue/interface_builder.hpp>
 
 #include <unistd.h>
 #include <sys/socket.h>

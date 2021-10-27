@@ -1,0 +1,6 @@
+[submodule "dbus-glue"]
+	path = dbus-glue
+	url = git@github.com:5cript/dbus-glue.git
+[submodule "dbus-glue-system"]
+	path = dbus-glue-system
+	url = git@github.com:5cript/dbus-glue-system.git

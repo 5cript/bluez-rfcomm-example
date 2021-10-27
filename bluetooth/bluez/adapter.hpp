@@ -1,6 +1,6 @@
 #pragma once
 
-#include <dbus-mockery/bindings/bus.hpp>
+#include <dbus-glue/bindings/bus.hpp>
 #include "device.hpp"
 
 #include <memory>
