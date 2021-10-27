@@ -148,20 +148,28 @@ namespace Bluetooth
         return devices;
     }
 //---------------------------------------------------------------------------------------------------------------------
-    Device Adapter::getPairedByName(std::string const& name)
+    std::optional<Device> Adapter::getPairedByName(std::string const& name)
     {
+        bool anyFound = false;
         DBusGlue::object_path foundDev;
         auto devices = pairedDevices();
         for (auto const& device : devices)
         {
-            std::cout << device << "\n";
             Device dev{impl_->bus, device};
 
             if (dev.api().Name == name)
+            {
                 foundDev = device;
+                anyFound = true;
+                break;
+            }
+        }
+        if (!anyFound)
+        {
+            return std::nullopt;
         }
 
-        return {impl_->bus, foundDev};
+        return Device{impl_->bus, foundDev};
     }
 //#####################################################################################################################
 }

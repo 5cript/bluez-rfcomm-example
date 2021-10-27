@@ -5,6 +5,7 @@
 
 #include <memory>
 #include <string>
+#include <optional>
 
 namespace Bluetooth
 {
@@ -98,7 +99,7 @@ namespace Bluetooth
          * @param name
          * @return
          */
-        Device getPairedByName(std::string const& name);
+        std::optional<Device> getPairedByName(std::string const& name);
 
     private:
         std::unique_ptr <Implementation> impl_;

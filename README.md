@@ -36,3 +36,8 @@ Everything will be contained within "bluetoot_project".
 - cd build
 - cmake ..
 - cmake --build . -j4
+
+## Troubleshooting
+### Unit dbus-org.bluez.service not found
+Start the bluetooth service that exposes the dbus interfaces: `sudo systemctl start bluetooth`.
+### could not give myself a name: Permission denied

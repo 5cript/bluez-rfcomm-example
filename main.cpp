@@ -18,8 +18,9 @@ int main()
         1,
         "/bla/bluetooth",
         "SerialServer",
-        true,
-        "de.blabla.cpp"s
+        true
+        // requires modified rights as documented in README under 3)
+        // "de.blabla.cpp"s
     };
 
     Server server{&bus, info};
@@ -36,8 +37,10 @@ int main()
     */
 
     auto phone = driver.getPairedByName("HUAWEI P20");
-
-    phone.api().Trusted = true;
+    if (phone)
+    {
+        phone->api().Trusted = true;
+    }
 
     server.start(
         // on connect:

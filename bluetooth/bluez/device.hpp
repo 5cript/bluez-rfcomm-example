@@ -15,6 +15,10 @@ namespace Bluetooth
 
         Device(DBusGlue::dbus* bus, DBusGlue::object_path const& path);
         ~Device();
+        Device(Device&&);
+        Device(Device const&) = delete;
+        Device& operator=(Device&&);
+        Device& operator=(Device const&) = delete;
 
         device_type& api();
 
