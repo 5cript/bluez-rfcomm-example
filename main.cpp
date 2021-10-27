@@ -16,7 +16,7 @@ int main()
     ServerSpawnInfo info
     {
         1,
-        "/ela/bluetooth",
+        "/bla/bluetooth",
         "SerialServer",
         true,
         "de.blabla.cpp"s
