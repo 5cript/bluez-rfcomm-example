@@ -36,9 +36,9 @@ namespace Bluetooth
     }
     void ConnectionManager::NewConnection
     (
-        DBusMock::object_path const& device,
-        DBusMock::file_descriptor fd,
-        DBusMock::variant_dictionary <std::unordered_map> const& fd_properties
+        DBusGlue::object_path const& device,
+        DBusGlue::file_descriptor fd,
+        DBusGlue::variant_dictionary <std::unordered_map> const& fd_properties
     )
     {
         fd_ = dup(fd.operator int());
@@ -48,7 +48,7 @@ namespace Bluetooth
         }, on_disconnect);
         on_connect(device.string(), fd_);
     }
-    void ConnectionManager::RequestDisconnection(DBusMock::object_path const& device)
+    void ConnectionManager::RequestDisconnection(DBusGlue::object_path const& device)
     {
         reactor_->stop();
     }

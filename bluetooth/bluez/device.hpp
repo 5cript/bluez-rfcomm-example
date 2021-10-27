@@ -11,9 +11,9 @@ namespace Bluetooth
     class Device
     {
     public:
-        using device_type = DBusMock::Mocks::interface_mock <BlueZ::org::bluez::hci::dev::Device>;
+        using device_type = DBusGlue::Mocks::interface_mock <BlueZ::org::bluez::hci::dev::Device>;
 
-        Device(DBusMock::dbus* bus, DBusMock::object_path const& path);
+        Device(DBusGlue::dbus* bus, DBusGlue::object_path const& path);
         ~Device();
 
         device_type& api();

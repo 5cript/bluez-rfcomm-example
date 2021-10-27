@@ -12,7 +12,7 @@ namespace Bluetooth
     /**
 	 * @brief The Profile class
 	 */
-    class ConnectionManager : public DBusMock::exposable_interface
+    class ConnectionManager : public DBusGlue::exposable_interface
 	{
 	public:
 		ConnectionManager
@@ -39,11 +39,11 @@ namespace Bluetooth
 		void Release();
 		void NewConnection
 		(
-		    DBusMock::object_path const& device,
-		    DBusMock::file_descriptor fd,
-		    DBusMock::variant_dictionary <std::unordered_map> const& fd_properties
+		    DBusGlue::object_path const& device,
+		    DBusGlue::file_descriptor fd,
+		    DBusGlue::variant_dictionary <std::unordered_map> const& fd_properties
 		);
-		void RequestDisconnection(DBusMock::object_path const& device);
+		void RequestDisconnection(DBusGlue::object_path const& device);
 
 	private:
 		Reactor* reactor_;

@@ -34,7 +34,7 @@ namespace Bluetooth
 //#####################################################################################################################
     struct ServerImpl
     {
-        ServerImpl(Server const* parent, ServerSpawnInfo const& info, DBusMock::dbus* bus);
+        ServerImpl(Server const* parent, ServerSpawnInfo const& info, DBusGlue::dbus* bus);
         ~ServerImpl();
 
         /**
@@ -43,13 +43,13 @@ namespace Bluetooth
         void registerService();
 
         Server const* parent;
-        DBusMock::dbus* bus;
+        DBusGlue::dbus* bus;
         std::shared_ptr <Bluetooth::ConnectionManager> handler;
         Reactor reactor;
         ServerSpawnInfo info;
     };
 //---------------------------------------------------------------------------------------------------------------------
-    ServerImpl::ServerImpl(Server const* parent, ServerSpawnInfo const& info, DBusMock::dbus* bus)
+    ServerImpl::ServerImpl(Server const* parent, ServerSpawnInfo const& info, DBusGlue::dbus* bus)
         : parent{parent}
         , bus{bus}
         , handler{}
@@ -60,10 +60,10 @@ namespace Bluetooth
 //---------------------------------------------------------------------------------------------------------------------
     void ServerImpl::registerService()
     {
-        using namespace DBusMock;
+        using namespace DBusGlue;
         using namespace ExposeHelpers;
 
-        DBusMock::construct_interface <ConnectionManager> (
+        DBusGlue::construct_interface <ConnectionManager> (
             handler.get(),
             exposable_method_factory{} <<
                 name("Release") <<
@@ -126,7 +126,7 @@ namespace Bluetooth
     {
     }
 //#####################################################################################################################
-    Server::Server(DBusMock::dbus* bus, ServerSpawnInfo const& info)
+    Server::Server(DBusGlue::dbus* bus, ServerSpawnInfo const& info)
         : impl_{new ServerImpl(this, info, bus)}
     {
     }
@@ -160,7 +160,7 @@ namespace Bluetooth
     {
         impl_->reactor.stop();
 
-        using namespace DBusMock;
+        using namespace DBusGlue;
         auto profileMan = create_interface <BlueZ::org::bluez::ProfileManager>
         (
             *impl_->bus,

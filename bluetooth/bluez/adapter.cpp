@@ -8,7 +8,7 @@
 
 #include <type_traits>
 
-using namespace DBusMock;
+using namespace DBusGlue;
 using namespace std::string_literals;
 
 namespace Bluetooth
@@ -16,15 +16,15 @@ namespace Bluetooth
 //#####################################################################################################################
     struct Adapter::Implementation
     {
-        using adapter_type = DBusMock::Mocks::interface_mock <BlueZ::org::bluez::hci::Adapter>;
-        using network_server_type = DBusMock::Mocks::interface_mock <BlueZ::org::bluez::hci::NetworkServer>;
+        using adapter_type = DBusGlue::Mocks::interface_mock <BlueZ::org::bluez::hci::Adapter>;
+        using network_server_type = DBusGlue::Mocks::interface_mock <BlueZ::org::bluez::hci::NetworkServer>;
 
-        DBusMock::dbus* bus;
+        DBusGlue::dbus* bus;
         std::string hci;
         adapter_type adapter;
         network_server_type server;
 
-        Implementation(DBusMock::dbus* bus, std::string const& hci, std::string const& adapter)
+        Implementation(DBusGlue::dbus* bus, std::string const& hci, std::string const& adapter)
             : bus{bus}
             , hci{hci}
             , adapter{[bus, &hci, &adapter]() -> auto {
@@ -48,7 +48,7 @@ namespace Bluetooth
         {}
     };
 //#####################################################################################################################
-    Adapter::Adapter(DBusMock::dbus* bus, std::string const& hci, std::string const& adapter)
+    Adapter::Adapter(DBusGlue::dbus* bus, std::string const& hci, std::string const& adapter)
         : impl_{new Implementation(bus, hci, adapter)}
     {
 
@@ -116,7 +116,7 @@ namespace Bluetooth
         impl_->adapter.PairableTimeout = timeout;
     }
 //---------------------------------------------------------------------------------------------------------------------
-    std::vector <DBusMock::object_path> Adapter::pairedDevices() const
+    std::vector <DBusGlue::object_path> Adapter::pairedDevices() const
     {
         auto objectManager = create_interface <DBus::org::freedesktop::DBus::ObjectManager>
         (
@@ -127,7 +127,7 @@ namespace Bluetooth
         );
 
         auto objects = objectManager.GetManagedObjects();
-        std::vector <DBusMock::object_path> devices;
+        std::vector <DBusGlue::object_path> devices;
         for (auto const& [key, value] : objects)
         {
             auto keyString = key.string();
@@ -150,7 +150,7 @@ namespace Bluetooth
 //---------------------------------------------------------------------------------------------------------------------
     Device Adapter::getPairedByName(std::string const& name)
     {
-        DBusMock::object_path foundDev;
+        DBusGlue::object_path foundDev;
         auto devices = pairedDevices();
         for (auto const& device : devices)
         {

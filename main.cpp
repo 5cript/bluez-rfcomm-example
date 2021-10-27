@@ -11,7 +11,7 @@ int main()
     using namespace Bluetooth;
     using namespace std::string_literals;
 
-    auto bus = DBusMock::open_system_bus();
+    auto bus = DBusGlue::open_system_bus();
 
     ServerSpawnInfo info
     {
@@ -55,7 +55,7 @@ int main()
         }
     );
 
-    DBusMock::make_busy_loop(&bus);
+    DBusGlue::make_busy_loop(&bus);
 
     std::cin.get();
 

@@ -14,7 +14,7 @@ namespace Bluetooth
         struct Implementation;
 
     public:
-        Adapter(DBusMock::dbus* bus, std::string const& hci = "hci0", const std::string& adapter = "Adapter1");
+        Adapter(DBusGlue::dbus* bus, std::string const& hci = "hci0", const std::string& adapter = "Adapter1");
         ~Adapter();
 
         /**
@@ -91,7 +91,7 @@ namespace Bluetooth
          * @brief pairedDevices Retrieve a list of paired devices
          * @return
          */
-        std::vector <DBusMock::object_path> pairedDevices() const;
+        std::vector <DBusGlue::object_path> pairedDevices() const;
 
         /**
          * @brief getPairedByName Retrieve a device by name that is paired.

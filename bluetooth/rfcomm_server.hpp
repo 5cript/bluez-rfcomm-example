@@ -53,7 +53,7 @@ namespace Bluetooth
     class Server
     {
     public:
-        Server(DBusMock::dbus* bus, ServerSpawnInfo const& info);
+        Server(DBusGlue::dbus* bus, ServerSpawnInfo const& info);
         ~Server();
 
         /**
