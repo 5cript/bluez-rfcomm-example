@@ -46,7 +46,7 @@ int main()
         },
         // on data:
         [](int fd, std::string const& data){
-            std::cout << "Data recieved from " << fd << ": " << data << "\n";
+            std::cout << "Data received from " << fd << ": " << data << "\n";
             ::write(fd, "ok", 2);
         },
         // on disconnect:
