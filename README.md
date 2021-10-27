@@ -1,5 +1,5 @@
 # bluez-rfcomm-example
-An example to register an RFCOMM server using my dbus-mock library.
+An example to register an RFCOMM server using my dbus-glue library.
 But this is useful for everyone trying to implement a bluez serial service.
 You can use the sdbus++ library, or any dbus lib. The code should be 
 understandable enough for that.
