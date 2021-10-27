@@ -28,14 +28,14 @@ file(GLOB sources "main.cpp"
 add_executable(bluetooth_test ${sources})
 
 # Linking & Includes
-target_include_directories(${PROJECT_NAME} PRIVATE "../dbus-mockery/include" "../dbus-mockery-system/include")
+target_include_directories(${PROJECT_NAME} PRIVATE "../dbus-glue/include" "../dbus-glue-system/include")
 
 include(FindPkgConfig)
 
 pkg_check_modules(SYSTEMD "libsystemd")
 
 find_library(LBLUETOOTH NAMES bluetooth)
-find_library(LDBUSMOCK NAMES dbus-mockery PATHS "../dbus-mockery/build")
+find_library(LDBUSMOCK NAMES dbus-mockery PATHS "../dbus-glue/build")
 
 message("Following paths for the libraries were found:")
 message("\tbluetooth: " ${LBLUETOOTH})
