@@ -41,3 +41,4 @@ Everything will be contained within "bluetoot_project".
 ### Unit dbus-org.bluez.service not found
 Start the bluetooth service that exposes the dbus interfaces: `sudo systemctl start bluetooth`.
 ### could not give myself a name: Permission denied
+See point 3) above
