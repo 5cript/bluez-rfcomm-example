@@ -34,10 +34,11 @@ Everything will be contained within "bluetoot_project".
 - git clone --recurse-submodules -j2 https://github.com/5cript/bluez-rfcomm-example.git
 - mkdir build
 - cd build
-- cmake ..
+- cmake ../bluez-rfcomm-example
 - cmake --build . -j4
 
 ## Troubleshooting
 ### Unit dbus-org.bluez.service not found
 Start the bluetooth service that exposes the dbus interfaces: `sudo systemctl start bluetooth`.
 ### could not give myself a name: Permission denied
+See point 3) above
